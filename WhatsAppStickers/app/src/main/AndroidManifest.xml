@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.unusualapps.whatsappstickers">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+            android:allowBackup="true"
+            android:fullBackupContent="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyBaseTheme">
+        <activity android:name=".activities.AddToStickerPackActivity" android:label="Add to sticker pack">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activities.MainActivity"/>
+        </activity>
+        <activity
+                android:name=".activities.MainActivity">
+        </activity>
+        <activity
+                android:name=".backgroundRemover.CutOutActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppThemeWithOutActionBar"/>
+        <activity
+                android:name=".backgroundRemover.IntroActivity"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/MyBaseTheme"/>
+        <activity
+                android:name=".whatsapp_api.StickerPackDetailsActivity"
+                android:parentActivityName=".activities.MainActivity"
+                android:screenOrientation="portrait"
+                tools:ignore="UnusedAttribute">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activities.MainActivity"/>
+        </activity>
+        <activity
+                android:name=".activities.RequestPermissionActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".whatsapp_api.StickerPackInfoActivity"
+                android:label="@string/title_activity_sticker_pack_info"
+                android:parentActivityName=".whatsapp_api.StickerPackDetailsActivity"
+                android:screenOrientation="portrait"
+                tools:ignore="UnusedAttribute">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.unusualapps.whatsappstickers.whatsapp_api.StickerPackDetailsActivity"/>
+        </activity>
+
+        <provider
+                android:name=".whatsapp_api.StickerContentProvider"
+                android:authorities="${contentProviderAuthority}"
+                android:enabled="true"
+                android:exported="true"
+                android:grantUriPermissions="true"
+                android:readPermission="com.whatsapp.sticker.READ"
+                android:writePermission="com.whatsapp.sticker.WRITE"
+                tools:replace="android:authorities">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/provider_paths"
+                    tools:replace="android:resource"/>
+        </provider>
+        <provider
+                android:name="android.support.v4.content.FileProvider"
+                android:authorities="${applicationId}.easyphotopicker.fileprovider"
+                android:enabled="true"
+                android:grantUriPermissions="true"
+                tools:replace="android:authorities">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/provider_paths"
+                    tools:replace="android:resource"/>
+        </provider>
+
+        <activity
+                android:name=".activities.NewStickerPackActivity"
+                android:label="@string/title_activity_new_sticker_pack"
+                android:launchMode="singleTask"
+                android:parentActivityName=".activities.MainActivity"
+                android:screenOrientation="portrait">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activities.MainActivity"/>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#BABABA</color>
+    <color name="colorAccent">#128c7e</color>
+    -->
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#BABABA</color>
+    <color name="colorAccent">#128c7e</color>
+    <color name="inactiveAddButtonColor">#B3B3B3</color>
+    <color name="infoPageBackgroundColor">#EBEBEB</color>
+    <color name="actionBarArrowColor">@color/colorAccent</color>
+
+    <!--Background remover -->
+    <color name="real_black">#b7000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="Modal">#b7000000</color>
+    <color name="bg_row_background">#ff303e</color>
+    <color name="bg_row_foreground">#fcfcfc</color>
+    <color name="intro_magic_background_color">#373737</color>
+    <color name="intro_manual_background_color">#E64E4E</color>
+    <color name="intro_zoom_background_color">#4E5DE6</color>
+</resources>

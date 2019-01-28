@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Share" android:id="@+id/sticker_share"/>
+    <item android:title="Delete" android:id="@+id/sticker_delete"/>
+    <item android:title="Edit" android:id="@+id/sticker_edit"/>
+    <item android:title="Save in gallery" android:id="@+id/sticker_save_gallery"/>
+
+</menu>

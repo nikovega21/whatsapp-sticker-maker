@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".activities.MyStickersFragment">
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" android:layout_marginTop="8dp" android:visibility="visible"
+                android:id="@+id/no_stickers_icon">
+            <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animation_view"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_height="300sp"
+                    app:lottie_fileName="empty_list.json"
+                    app:lottie_loop="true"
+                    app:lottie_autoPlay="true"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:text="There is not stickers available.\nLet's create some awesome stickers." android:textAlignment="center"/>
+        </LinearLayout>
+        <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:clickable="true"
+                android:src="@drawable/ic_outline_add_24px"
+                android:tint="#fff"
+                app:fabSize="normal"
+                app:rippleColor="#fff"
+                app:useCompatPadding="true"
+                android:id="@+id/floating_button_add_sticker_pack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:focusable="true"/>
+        <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/refresh_my_stickers_swiper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/stickers_recycler_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:listitem="@layout/sticker_packs_list_item" app:layout_constraintBottom_toBottomOf="parent"
+            />
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

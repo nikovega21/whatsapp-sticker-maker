@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+            android:id="@+id/menu_home"
+            android:enabled="true"
+            android:title="My Stickers"
+            android:icon="@drawable/ic_round_home_24px"
+            app:showAsAction="ifRoom"/>
+    <!--<item
+        android:id="@+id/menu_explore"
+        android:enabled="true"
+        android:icon="@drawable/ic_round_explore_24px"
+        android:title="Explore"
+        app:showAsAction="ifRoom" />-->
+    <item
+            android:id="@+id/menu_create"
+            android:enabled="true"
+            android:icon="@drawable/ic_round_create_24px"
+            android:title="Create"
+            app:showAsAction="ifRoom"/>
+</menu>
