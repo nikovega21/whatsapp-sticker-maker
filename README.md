@@ -1,7 +1,7 @@
 Whatsapp android sticker maker
 
 # Introduction 
-What can you do with this app:
+What can you do with this app?:
 
 - Create stickers removing its background
 - Create stickerpacks and add it to whatsapp
