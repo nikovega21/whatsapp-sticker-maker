@@ -1,5 +1,17 @@
-# Introduction 
 Whatsapp android sticker maker
+
+# Introduction 
+What can you do with this app:
+
+- Create stickers removing its background
+- Create stickerpacks and add it to whatsapp
+
+# Libraries used
+
+- Android CutOut [https://github.com/GabrielBB/Android-CutOut]
+- Lottie [https://github.com/airbnb/lottie-android]
+- FishBun Image Chooser [https://github.com/sangcomz/FishBun]
+- Fresco [https://github.com/facebook/fresco]
 
 # License
 
