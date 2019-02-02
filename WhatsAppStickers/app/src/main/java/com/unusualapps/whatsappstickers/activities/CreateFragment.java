@@ -19,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.sangcomz.fishbun.FishBun;
 import com.sangcomz.fishbun.adapter.image.impl.GlideAdapter;
@@ -31,9 +32,11 @@ import com.unusualapps.whatsappstickers.utils.StickerPacksManager;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class CreateFragment extends Fragment {
     ImagesGridAdapter imagesGridAdapter;
+    View view;
 
     public CreateFragment() {
         // Required empty public constructor
@@ -53,6 +56,7 @@ public class CreateFragment extends Fragment {
         } else {
             directory.mkdir();
         }
+        verifyStickersCount();
         return images;
     }
 
@@ -66,7 +70,7 @@ public class CreateFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_create, container, false);
+        view = inflater.inflate(R.layout.fragment_create, container, false);
         view.findViewById(R.id.create_sticker).setOnClickListener(v -> FishBun.with(getActivity())
                 .setImageAdapter(new GlideAdapter())
                 .setMaxCount(1)
@@ -80,7 +84,17 @@ public class CreateFragment extends Fragment {
         gridview.setLayoutManager(gridLayoutManager);
         imagesGridAdapter = new ImagesGridAdapter(view.getContext(), loadStickersCreated());
         gridview.setAdapter(imagesGridAdapter);
+        verifyStickersCount();
         return view;
+    }
+
+    public void verifyStickersCount() {
+        View linearLayout = view.findViewById(R.id.no_stickers_icon);
+        if (imagesGridAdapter == null || imagesGridAdapter.getItemCount() == 0) {
+            linearLayout.setVisibility(View.VISIBLE);
+        } else {
+            linearLayout.setVisibility(View.GONE);
+        }
     }
 
     public static void addImageToGallery(final String filePath, final Context context) {
@@ -107,6 +121,7 @@ public class CreateFragment extends Fragment {
                     imagesGridAdapter.uries = loadStickersCreated();
                     imagesGridAdapter.notifyDataSetChanged();
                     Toast.makeText(getActivity(), "Sticker created", Toast.LENGTH_LONG).show();
+                    verifyStickersCount();
                     break;
                 case CutOut.CUTOUT_ACTIVITY_RESULT_ERROR_CODE:
                     Exception ex = CutOut.getError(data);
@@ -172,11 +187,12 @@ public class CreateFragment extends Fragment {
                     .setMessage("Are you sure you want to delete this sticker?")
                     .setPositiveButton("Yes", (dialog, which) -> {
                         Uri uri = uries.get(index);
-                        FileUtils.deleteFile(uri.getPath());
+                        FileUtils.deleteFile(uri.getPath(),context);
                         uries.remove(index);
                         notifyItemRemoved(index);
                         notifyDataSetChanged();
                         Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                        verifyStickersCount();
                     })
                     .setNegativeButton("No", null)
                     .show();

@@ -18,6 +18,34 @@
                 android:layout_height="0dp" android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintVertical_bias="0.215"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginTop="8dp" android:visibility="visible"
+            android:id="@+id/no_stickers_icon">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation_view"
+                android:layout_width="match_parent"
+                android:layout_height="200sp"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="empty_list.json"
+                app:lottie_loop="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="There is no stickers available.\nLet's create some awesome stickers."
+                android:textAlignment="center" />
+        </LinearLayout>
         <android.support.design.widget.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

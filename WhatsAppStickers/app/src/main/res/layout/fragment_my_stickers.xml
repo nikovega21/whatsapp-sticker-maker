@@ -8,28 +8,49 @@
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:text="Sticker packs created"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="8dp" android:layout_marginTop="8dp" android:visibility="visible"
-                android:id="@+id/no_stickers_icon">
+            android:id="@+id/no_stickerspacks_icon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3">
+
             <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/animation_view"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_height="300sp"
-                    app:lottie_fileName="empty_list.json"
-                    app:lottie_loop="true"
-                    app:lottie_autoPlay="true"/>
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:text="There is not stickers available.\nLet's create some awesome stickers." android:textAlignment="center"/>
+                android:id="@+id/animation_view_empty_box"
+                android:layout_width="match_parent"
+                android:layout_height="200sp"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="empty_box.json"
+                app:lottie_loop="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="There is no sticker packs available.\nLet's create some awesome stickers."
+                android:textAlignment="center" />
         </LinearLayout>
         <android.support.design.widget.FloatingActionButton
                 android:layout_width="wrap_content"
@@ -45,19 +66,25 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:focusable="true"/>
+
         <android.support.v4.widget.SwipeRefreshLayout
-                android:id="@+id/refresh_my_stickers_swiper"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            android:id="@+id/refresh_my_stickers_swiper"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3">
+
             <android.support.v7.widget.RecyclerView
-                    android:id="@+id/stickers_recycler_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:listitem="@layout/sticker_packs_list_item" app:layout_constraintBottom_toBottomOf="parent"
-            />
+                android:id="@+id/stickers_recycler_list"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/sticker_packs_list_item" />
         </android.support.v4.widget.SwipeRefreshLayout>
     </android.support.constraint.ConstraintLayout>
 

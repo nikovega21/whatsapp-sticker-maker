@@ -91,7 +91,7 @@ public class MyStickersFragment extends Fragment {
     }
 
     public void verifyStickersCount() {
-        View linearLayout = view.findViewById(R.id.no_stickers_icon);
+        View linearLayout = view.findViewById(R.id.no_stickerspacks_icon);
         if (stickerListAdapter.getItemCount() == 0) {
             linearLayout.setVisibility(View.VISIBLE);
         } else {

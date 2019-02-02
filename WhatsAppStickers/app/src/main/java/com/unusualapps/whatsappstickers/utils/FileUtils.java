@@ -1,5 +1,6 @@
 package com.unusualapps.whatsappstickers.utils;
 
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.database.Cursor;
@@ -9,6 +10,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.util.Log;
+
 import com.unusualapps.whatsappstickers.constants.Constants;
 
 import java.io.*;
@@ -69,11 +71,15 @@ public class FileUtils {
         dir.delete();
     }
 
-    public static void deleteFile(String path) {
+    public static void deleteFile(String path, Context context) {
         File file = new File(path);
         if (file.exists()) {
             file.delete();
         }
+        context.getContentResolver().delete(
+                MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
+                MediaStore.MediaColumns.DATA + "='" + path + "'", null
+        );
     }
 
     public static String getImageRealPathFromURI(Context context, Uri contentUri) {
