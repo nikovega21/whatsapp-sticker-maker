@@ -6,7 +6,7 @@ What can you do with this app?:
 - Create stickers removing its background
 - Create stickerpacks and add it to whatsapp
 
-Aditional information:
+Additional information:
 
 - This is not a fully tested app so I could have some errors.
 
