@@ -6,6 +6,14 @@ What can you do with this app?:
 - Create stickers removing its background
 - Create stickerpacks and add it to whatsapp
 
+Aditional information:
+
+- This is not a fully tested app so I could have some errors.
+
+- All features of this app may not work.
+
+- Feel free to make any changes and make pull requests.
+
 # Libraries used
 
 - Android CutOut [https://github.com/GabrielBB/Android-CutOut]
