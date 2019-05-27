@@ -10,7 +10,7 @@ Additional information:
 
 - This is not a fully tested app so I could have some errors.
 
-- All features of this app may not work.
+- Some features of this app may not work.
 
 - Feel free to make any changes and make pull requests.
 
